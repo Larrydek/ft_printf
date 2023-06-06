@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:29:10 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/06/06 19:33:25 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/06/06 20:50:10 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 
 #include <unistd.h>
 
-
+size_t	ft_strlen(const char *str);
 
 #endif
