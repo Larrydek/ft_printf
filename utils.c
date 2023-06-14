@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:25:02 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/06/06 20:50:14 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/06/12 21:36:51 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,30 @@ size_t	ft_strlen(const char *str)
 	while (str[i] && str[i] != 0)
 		i++;
 	return (i);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	s[2];
+	long	num;
+
+	num = n;
+	if (num < 0)
+	{
+		write(fd, "-", 1);
+		num = -num;
+	}
+	if (num >= 0)
+	{
+		if (n == 0)
+			write(fd, "0", 1);
+		else
+		{
+			s[0] = (num % 10) + 48;
+			num = num / 10;
+			if (num > 0)
+				ft_putnbr_fd(num, fd);
+			write(fd, &s[0], 1);
+		}
+	}
 }
