@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:09:44 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/06/14 20:00:16 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:54:40 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,36 +27,37 @@ int	ft_printf(char const *type, ...)
         {
             type++;
             if (*type == 'c')
-                write(1, args[i], 1)
+                write(1, args[i], 1);
+            else if (*type == 's')
+            {
+                write(1, args[i], ft_strlen(args[i]));
+            }
+            else if (*type == 'p')
+            {
+                
+            }
+            else if (*type == 'd')
+            {
+                
+            }
+            else if (*type == 'u')
+            {
+                
+            }
+            else if (*type == 'x')
+            {
+                
+            }
+            else if (*type == 'X')
+            {
+                
+            }
+            else if (*type == '%')
+            {
+                
+            }
         }
-        else if(*type == 's')
-        {
-            
-        }
-        else if(*type == 'p')
-        {
-            
-        }
-        else if(*type == 'd')
-        {
-            
-        }
-        else if(*type == 'u')
-        {
-            
-        }
-        else if(*type == 'x')
-        {
-            
-        }
-        else if(*type == 'X')
-        {
-            
-        }
-        else if(*type == '%')
-        {
-            
-        }
+        
         type++;
     }
     va_end(args);
