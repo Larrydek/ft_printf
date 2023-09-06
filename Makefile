@@ -1,13 +1,28 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+LIB = ar rcs
 
-TARGET = mi_programa
-SOURCE_FILES = main.c archivo1.c archivo2.c
+NAME = libftprintf.a
 
-all: $(TARGET)
+MY_SOURCES = ft_printf.c \
+    utils.c \
 
-$(TARGET): $(SOURCE_FILES)
-    $(CC) $(CFLAGS) $^ -o $@
+MY_OBJECTS = $(MY_SOURCES:.c=.o)
+
+CFLAGS += -Wall -Wextra -Werror
+
+$(NAME):$(MY_OBJECTS) ft_printf.h
+    $(LIB) $(NAME) $(MY_OBJECTS)
+
+%.o: %.c
+    gcc $(CFLAGS) -c -o $@ $<
+
+all: $(NAME)
 
 clean:
-    rm -f $(TARGET)
+    rm -f $(MY_OBJECTS) $(BONUS_OBJ)
+
+fclean: clean
+    rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all, clean, fclean, re

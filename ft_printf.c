@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:09:44 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/06/15 16:54:40 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:49:21 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,17 @@ int	ft_printf(char const *type, ...)
             }
             else if (*type == 'p')
             {
-                
+                write(1, &args[i], ft_strlen(args[i]))
             }
             else if (*type == 'd')
             {
-                
+                ft_putnbr_fd(args[i], 1);
             }
             else if (*type == 'u')
             {
-                
+                if (args[i] < 0)
+                    args[i] = args[i] * -1;
+                write(1, args[i],)
             }
             else if (*type == 'x')
             {
