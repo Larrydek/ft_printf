@@ -6,16 +6,17 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:09:44 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/09/06 20:55:32 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:51:43 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int ft_format(char const *s, char type, int len)
+int ft_format(char const *type, char args, int len)
 {
     if (*type == 'c')
     {
+        write(1, type, 1);
     }
     else if (*type == 's')
     {
@@ -53,11 +54,16 @@ int ft_printf(char const *type, ...)
         if(*type == '%')
         {
             type++;
-            ft_format(type, args, len);
+            ft_format(type, args, &len);
+            type++;
             
         }
-        
-        type++;
+        else
+        {
+            write(1, &type, 1);
+            type++;
+            len++;
+        }
     }
     va_end(args);
     
