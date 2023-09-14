@@ -1,1 +1,1 @@
-Replico la función prinft() en C desde 0.
+Replico la función printf() en C desde 0.
