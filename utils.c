@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:25:02 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/09/13 23:16:09 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/09/18 20:28:04 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ size_t	ft_int_len(int n)
 	i = 0;
 	
 	if (n == -2147483648)
-	{
 		return (11);
-	}
 	if (n == 0)
 		i = 1;
 	if (n < 0)
@@ -66,34 +64,3 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
-void	ft_char(char c, int *len)
-{
-	write(1, &c, 1);
-	(*len)++;
-}
-
-void	ft_string(char *s, int *len)
-{
-	if (!s)
-	{
-		write(1, "(null)", 6);
-		(*len) += 6;
-		return ;
-	}
-	while (*s)
-	{
-		write(1, s, 1);
-		s++;
-		(*len++);
-	}
-}
-
-void	*ft_punt(unsigned long int p, char *s, int *len)
-{
-}
-
-void	ft_float(int n, int *len)
-{
-	*len += ft_int_len(n);
-	ft_putnbr_fd(n, 1);
-}

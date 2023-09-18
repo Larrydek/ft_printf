@@ -4,6 +4,7 @@ NAME = libftprintf.a
 
 MY_SOURCES = ft_printf.c \
     utils.c \
+    utils_format.c \
 
 MY_OBJECTS = $(MY_SOURCES:.c=.o)
 

@@ -1,30 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   utils_format.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/06 19:29:10 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/09/18 20:49:33 by jde-clee         ###   ########.fr       */
+/*   Created: 2023/09/18 20:12:27 by jde-clee          #+#    #+#             */
+/*   Updated: 2023/09/18 20:32:20 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdarg.h>
+void	ft_char(char c, int *len)
+{
+	write(1, &c, 1);
+	(*len)++;
+}
 
-int		ft_printf(char const *type, ...);
-size_t	ft_strlen(const char *str);
-void	ft_putnbr_fd(int n, int fd);
-size_t	ft_int_len(int n);
+void	ft_string(char *s, int *len)
+{
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		(*len) += 6;
+		return ;
+	}
+	while (*s)
+	{
+		write(1, s, 1);
+		s++;
+		(*len++);
+	}
+}
 
-void    ft_char(char c, int *len);
-void    ft_string(char *s, int *len);
-void    *ft_punt(unsigned long int p, char *s, int *len);
-void    ft_float(int n, int *len);
+void	*ft_punt(unsigned long int p, char *s, int *len)
+{
+    write(2, "0x", 1);
+    
+}
 
-#endif
+void	ft_float(int n, int *len)
+{
+	*len += ft_int_len(n);
+	ft_putnbr_fd(n, 1);
+}
