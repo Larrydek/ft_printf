@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:09:44 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/09/18 20:52:11 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/09/18 23:09:54 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ int	ft_format(char const *type, char args, int *len)
 		ft_string(va_arg(args, char *), len);
 	else if (*type == 'p')
 		ft_punt();
-	else if (*type == 'd')
-		ft_putnbr_fd();
+	else if (*type == 'd' || *type == 'i')
+		ft_putnbr(va_arg(args, int));
 	else if (*type == 'u')
 		ft_putnbr_fd();
-	else if (*type == 'x')
-		ft_hex();
-	else if (*type == 'X')
-		ft_hex();
+	else if (*type == 'x' || *type == 'X')
+		ft_hex(va_arg(args, unsigned int));
 	else if (*type == '%')
 		write(1, "%", 1);
 }
@@ -37,6 +35,7 @@ int	ft_printf(char const *type, ...)
 	va_list	args;
 	
 	int         len;
+	
 	va_start (args, type);
 
 	len = 0;

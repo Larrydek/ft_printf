@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:29:10 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/09/18 20:49:33 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/09/18 22:54:14 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int		ft_printf(char const *type, ...);
 size_t	ft_strlen(const char *str);
-void	ft_putnbr_fd(int n, int fd);
+void	ft_putnbr_fd(int n);
 size_t	ft_int_len(int n);
 
 void    ft_char(char c, int *len);
