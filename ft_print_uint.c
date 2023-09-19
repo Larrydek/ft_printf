@@ -1,48 +1,39 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_format.c                                     :+:      :+:    :+:   */
+/*   ft_print_uint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 20:12:27 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/09/19 23:58:03 by jde-clee         ###   ########.fr       */
+/*   Created: 2023/09/19 23:36:01 by jde-clee          #+#    #+#             */
+/*   Updated: 2023/09/19 23:36:02 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_char(char c, int *len)
+void	ft_unsigned(unsigned int n, int *len)
 {
-	write(1, &c, 1);
-	(*len)++;
-}
-
-void	ft_string(char *s, int *len)
-{
-	if (!s)
+	if (n > 9)
+		ft_print_uint(n / 10, len);
+	if (n <= 9)
 	{
-		write(1, "(null)", 6);
-		(*len) += 6;
+		ft_char(n + '0', len);
 		return ;
 	}
-	while (*s)
-	{
-		write(1, s, 1);
-		s++;
-		(*len)++;
-	}
+	ft_char((n % 10) + '0', len);
 }
 
-/*
-void	*ft_punt(unsigned long int p, char *s, int *len)
+int	*ft_print_uint(unsigned int num, int *len)
 {
-    write(2, "0x", 1);
-	
-}
-*/
-void	ft_float(int n, int *len)
-{
-	*len += ft_int_len(n);
-	ft_putnbr(n);
+	ft_unsigned(num, len);
+	if (num == 0)
+		return (len++);
+	while (num > 0)
+	{
+		num = num / 10;
+		(*len)++;
+	}
+	return (len);
 }
