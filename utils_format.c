@@ -6,11 +6,11 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 20:12:27 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/09/19 23:58:03 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:43:57 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_char(char c, int *len)
 {

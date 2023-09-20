@@ -11,7 +11,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_putnbr(int n)
 {
@@ -41,6 +41,8 @@ void	ft_putnbr(int n)
 
 int	*ft_print_num(int num, int *len)
 {
+	if (num == 0)
+		(*len)++;
 	*len += ft_int_len(num);
 	ft_putnbr(num);
 	return (len);

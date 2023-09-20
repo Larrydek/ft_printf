@@ -1,22 +1,23 @@
-lIB = ar rcs
-
 NAME = libftprintf.a
-MY_SOURCES = ft_printf.c \
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+SRC = ft_printf.c \
 				utils.c \
 				utils_format.c \
 				ft_print_hex.c \
 				ft_print_num.c \
 				ft_print_uint.c \
 
-MY_OBJECTS = $(MY_SOURCES:.c=.o)
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Ilibreria
-all: ${NAME}
-${NAME}: ${MY_OBJECTS}
-	@${CC} ${CFLAGS} ${MY_OBJECTS} -o ${NAME}
+OBJ = $(SRC:.c=.o)
+
+all : $(NAME)
+
+$(NAME) : $(OBJ) ft_printf.h
+		@ar rc $(NAME) $(OBJ)
+
 clean:
-		rm -f $(MY_OBJECTS)
+	@$(RM) $(OBJ)
 fclean: clean
-		rm -f $(NAME)
-re:     fclean all
-.PHONY: all, clean, fclean, re
+	@$(RM) $(NAME)
+re: fclean all
