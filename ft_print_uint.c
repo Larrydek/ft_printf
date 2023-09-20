@@ -29,11 +29,15 @@ int	*ft_print_uint(unsigned int num, int *len)
 {
 	ft_unsigned(num, len);
 	if (num == 0)
-		return (len++);
+	{
+		(*len)++;
+		return (len);
+	}
 	while (num > 0)
 	{
 		num = num / 10;
 		(*len)++;
 	}
+	printf("\nlen: %i\n", *len);
 	return (len);
 }

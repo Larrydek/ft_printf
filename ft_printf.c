@@ -59,7 +59,7 @@ int	ft_printf(char const *type, ...)
 	return (len);
 }
 
-/* int main()
+int main()
 {
     int i;
     char    *texto;
@@ -78,7 +78,9 @@ int	ft_printf(char const *type, ...)
 	// ft_printf("\nft_printf mío: \n");
 	// ft_printf(" funcion %c\n%s\n%d\n\n%u\n%x\n%X\n%%\n ", 'a', texto, 0, 4, 27, 27);
 	//ft_printf("ddd %d %d %d %d", -1, -42, 2, 876);
-	printf("\n%d\n", 0);
-	ft_printf("\n%d\n", 0);
+	printf("\n %u \n", 420);
+	printf("\n %u \n", -87);
+	ft_printf("\n %u \n", 420);
+	ft_printf("\n %u \n", -87);
     return(0);
-} */
+}
