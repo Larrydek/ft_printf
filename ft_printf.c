@@ -26,7 +26,13 @@ void	ft_format(char const *type, va_list args, int *len)
 	else if (*type == 'x' || *type == 'X')
 		ft_print_hex(va_arg(args, unsigned int), *type, len);
 	else if (*type == '%')
-		write(1, "%", 1);
+		ft_char('%', len);
+	else if (*type == 'p')
+	{
+		write(1, "0x", 2);
+		(*len) += 2;
+		ft_print_void(va_arg(args, unsigned long int), len);
+	}
 }
 
 int	ft_printf(char const *type, ...)
@@ -50,7 +56,6 @@ int	ft_printf(char const *type, ...)
 		{
 			write(1, type, 1);
 			len++;
-			//printf("vuelta: %d", len);
 			type++;
 		}
 	}
@@ -59,28 +64,12 @@ int	ft_printf(char const *type, ...)
 	return (len);
 }
 
-int main()
+/* int main()
 {
     int i;
     char    *texto;
     i = 0;
     texto = "hola\0";
-    // i = ft_printf(" funcion %c\n%s\n%p\n%d\n%i\n%u\n%x\n%X\n%%\n ", 'a', texto, texto, 0, 5, 4, 27, 27);
-    // ft_printf("%d\n", i);
-    // ft_printf("%d\n", -2147483648);
-    // ft_printf("%d\n", 2147483647);
-    // i = printf(" funcion %c\n%s\n%p\n%d\n%i\n%u\n%x\n%X\n%%", 'a', texto, texto, 0, 5, 4, 27, 27);
-    // printf("%d\n", i);
-    // printf("%ld\n", -2147483648);
-    // printf("%d", 2147483647);
-	// printf(" printf real \n");
-	// printf(" funcion %c\n%s\n%d\n%i\n%u\n%x\n%X\n%%\n ", 'a', texto, 0, 5, 4, 27, 27);
-	// ft_printf("\nft_printf mío: \n");
-	// ft_printf(" funcion %c\n%s\n%d\n\n%u\n%x\n%X\n%%\n ", 'a', texto, 0, 4, 27, 27);
-	//ft_printf("ddd %d %d %d %d", -1, -42, 2, 876);
-	printf("\n %u \n", 420);
-	printf("\n %u \n", -87);
-	ft_printf("\n %u \n", 420);
-	ft_printf("\n %u \n", -87);
+
     return(0);
-}
+} */

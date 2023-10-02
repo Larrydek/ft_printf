@@ -8,13 +8,14 @@ SRC = ft_printf.c \
 				ft_print_hex.c \
 				ft_print_num.c \
 				ft_print_uint.c \
+				ft_print_void.c \
 
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) ft_printf.h
-		@ar rc $(NAME) $(OBJ)
+$(NAME) : $(OBJ)
+		ar rc $(NAME) $(OBJ)
 
 clean:
 	@$(RM) $(OBJ)
