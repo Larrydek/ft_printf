@@ -6,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 23:11:28 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/10/02 23:30:10 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/10/03 20:21:27 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	ft_void(unsigned long int n, int *len)
 
 int	*ft_print_void(unsigned long int ptr, int *len)
 {
-    if (ptr == 0)
-    {
-        write(1, "0", 1);
-        (*len)++;
-    }
+	if (ptr == 0)
+	{
+		write(1, "0", 1);
+		(*len)++;
+	}
 	else
 		ft_void(ptr, len);
 	return (len);

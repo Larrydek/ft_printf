@@ -1,45 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_format.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/06 19:25:02 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/09/20 21:07:08 by jde-clee         ###   ########.fr       */
+/*   Created: 2023/09/18 20:12:27 by jde-clee          #+#    #+#             */
+/*   Updated: 2023/10/03 19:58:59 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_char(char c, int *len)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] && str[i] != 0)
-		i++;
-	return (i);
+	write(1, &c, 1);
+	(*len)++;
 }
 
-size_t	ft_int_len(int n)
+void	ft_string(char *s, int *len)
 {
-	int i;
-	
-	i = 0;
-	if (n == -2147483648)
-		return (11);
-	if (n == 0)
-		return (i);
-	if (n < 0)
+	if (!s)
 	{
-		n = -n;
-		i++;
+		write(1, "(null)", 6);
+		(*len) += 6;
+		return ;
 	}
-	while (n > 0)
+	while (*s)
 	{
-		n /= 10;
-		i++;
+		write(1, s, 1);
+		s++;
+		(*len)++;
 	}
-	return (i);
+}
+
+void	ft_float(int n, int *len)
+{
+	*len += ft_int_len(n);
+	ft_putnbr(n);
 }

@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: jde-clee <jde-clee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 23:35:43 by jde-clee          #+#    #+#             */
-/*   Updated: 2023/09/19 23:35:44 by jde-clee         ###   ########.fr       */
+/*   Updated: 2023/10/03 20:27:09 by jde-clee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +37,13 @@ void	ft_format(char const *type, va_list args, int *len)
 int	ft_printf(char const *type, ...)
 {
 	va_list	args;
-	
-	int         len;
-	
-	va_start (args, type);
+	int		len;
 
+	va_start (args, type);
 	len = 0;
-	while(*type)
+	while (*type)
 	{
-		if(*type == '%')
+		if (*type == '%')
 		{
 			type++;
 			ft_format(type, args, &len);
@@ -60,16 +57,5 @@ int	ft_printf(char const *type, ...)
 		}
 	}
 	va_end (args);
-	
 	return (len);
 }
-
-/* int main()
-{
-    int i;
-    char    *texto;
-    i = 0;
-    texto = "hola\0";
-
-    return(0);
-} */

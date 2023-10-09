@@ -4,7 +4,6 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 SRC = ft_printf.c \
 				utils.c \
-				utils_format.c \
 				ft_print_hex.c \
 				ft_print_num.c \
 				ft_print_uint.c \
